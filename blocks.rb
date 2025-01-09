@@ -1,3 +1,5 @@
+# This is a block
+# {puts "hello world"}
 class Person
   attr_accessor :socialize
 
