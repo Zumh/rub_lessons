@@ -40,3 +40,26 @@ club.do_block do |c|
   c.socialize
 end
 
+puts "\n## Array and hash \n"
+
+animals = %w{ animal cat is real }
+
+animals.each{|animal| puts animal} # iterate over the animal
+
+puts "\n## 3 Multiply "
+
+3.times {puts "ho"}
+
+puts "\n## Pass blocks \n"
+
+def wrap &b
+
+  print "Santa's says\n"
+
+  3.times(&b)
+
+  print "\n"
+
+end
+
+wrap {print "heho! "}
