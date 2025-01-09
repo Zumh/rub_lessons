@@ -1,10 +1,11 @@
 # This is a block
 # {puts "hello world"}
+
 class Person
   attr_accessor :socialize
 
   def initialize
-    @socialize = "I love meeting new people!"
+    @socialize = "I'm enjoying socializing!"
   end
 end
 
@@ -17,7 +18,6 @@ class Club
 
   def enroll(person)
     @members << person
-    puts "#{person} has been enrolled in the club!"
   end
 
   def socialize
@@ -25,12 +25,18 @@ class Club
       puts person.socialize
     end
   end
+
+  def do_block
+    yield self if block_given?  # Executes the block and passes `self` (the club instance) into it
+  end
 end
 
 club = Club.new
 person = Person.new
 
-# Enroll the person in the club and have them socialize
-club.enroll(person)
-club.socialize
+# The `do ... end` block here is used to work with the club instance
+club.do_block do |c|
+  c.enroll(person)
+  c.socialize
+end
 
